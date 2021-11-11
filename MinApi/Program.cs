@@ -1,9 +1,21 @@
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRazorPages(opts => {
+    opts.RootDirectory = "/Views";
+});
+
 var app = builder.Build();
+
+
+
+app.MapRazorPages();
 
 app.MapGet("/", (HttpContext context) => {
         context.Response.ContentType = "text/html";
-        return $"<body>{DummyDataService.People} <form><input type='submit' /></form></body>";
+        return @$"
+            <body>{DummyDataService.People} <form><input type='submit' /></form>
+            </body>";
     });
 
 app.MapGet("/person/{id}", (int id, HttpContext context) => {
@@ -14,6 +26,7 @@ app.MapGet("/person/{id}", (int id, HttpContext context) => {
 app.MapPost("/", () => Results.Redirect("/"));
 
 app.Run();
+
 
 
 public static class DummyDataService

@@ -6,4 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="tests" />
+  </ItemGroup>
 </Project>

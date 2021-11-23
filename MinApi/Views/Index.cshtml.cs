@@ -9,6 +9,6 @@ public class Index : PageModel
 
     public void OnGet()
     {
-        Message = "Hello World3";
+        Message = "Hello World";
     }
 }
